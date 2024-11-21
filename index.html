@@ -39,6 +39,18 @@
                     vY = -vY;
                     posY += vY;
                 }
+                if(keysdown['w']){
+                    vY --;
+                }
+                if(keysdown['s']){
+                    vY ++;
+                }
+                if(keysdown['a']){
+                    vX --;
+                }
+                if(keysdown['d']){
+                    vX ++;
+                }
                 document.getElementById('kneesurgeryrealimage').style.left = posX + 'px';
                 document.getElementById('kneesurgeryrealimage').style.top = posY + 'px';
                 requestAnimationFrame(step);
