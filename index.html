@@ -19,7 +19,7 @@
     <body>
         <h2>hey dude,</h2>
         <h1>THAT FEELING WHEN KNEE SURGERY IS TOMORROW. . .</h1>
-        <img id="kneesurgeryrealimage" width='200px' src="knee surgery guy.jpg">
+        <img id="kneesurgeryrealimage" width='400px' src="knee surgery guy.jpg">
         <h1 id="ohio">SEND THIS TO 5 PEOPLE YOU KNOW OR ELSE I WILL GIVE YOU KNEE SURGERY TOMORROW. . .</h1>
         <script>
             let keysdown = {};
@@ -32,13 +32,13 @@
             window.addEventListener("keyup", function(input){keysdown[input.key.toLowerCase()] = false});
             function step(){
                 posX += vX;
-                if(posX>window.innerWidth-200 || posX<0){
+                if(posX>window.innerWidth-400 || posX<0){
                     vX = -vX;
                     posX += vX;
                     hits ++;
                 }
                 posY += vY;
-                if(posY>window.innerHeight-100 || posY<0){
+                if(posY>window.innerHeight-220 || posY<0){
                     vY = -vY;
                     posY += vY;
                     hits ++;
