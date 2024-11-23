@@ -20,12 +20,14 @@
         <h2>hey dude,</h2>
         <h1>THAT FEELING WHEN KNEE SURGERY IS TOMORROW. . .</h1>
         <img id="kneesurgeryrealimage" width='200px' src="knee surgery guy.jpg">
+        <h1 id="ohio">SEND THIS TO 5 PEOPLE YOU KNOW OR ELSE I WILL GIVE YOU KNEE SURGERY TOMORROW. . .</h1>
         <script>
             let keysdown = {};
             let posX = 0;
             let posY = 0;
             let vX = 5;
             let vY = 5;
+            let hits = 0;
             window.addEventListener("keydown", function(input){keysdown[input.key.toLowerCase()] = true});
             window.addEventListener("keyup", function(input){keysdown[input.key.toLowerCase()] = false});
             function step(){
@@ -33,11 +35,13 @@
                 if(posX>window.innerWidth-200 || posX<0){
                     vX = -vX;
                     posX += vX;
+                    hits ++;
                 }
                 posY += vY;
                 if(posY>window.innerHeight-100 || posY<0){
                     vY = -vY;
                     posY += vY;
+                    hits ++;
                 }
                 if(keysdown['w']){
                     vY -= 0.5;
@@ -53,10 +57,10 @@
                 }
                 document.getElementById('kneesurgeryrealimage').style.left = posX + 'px';
                 document.getElementById('kneesurgeryrealimage').style.top = posY + 'px';
+                document.getElementById('ohio').innerText = "SEND THIS TO " + hits + " PEOPLE YOU KNOW OR ELSE I WILL GIVE YOU KNEE SURGERY TOMORROW. . .";
                 requestAnimationFrame(step);
             }
             step();
         </script>
-        <h1>SEND THIS TO 5 PEOPLE YOU KNOW OR ELSE I WILL GIVE YOU KNEE SURGERY TOMORROW. . .</h1>
     </body>
 </html>
