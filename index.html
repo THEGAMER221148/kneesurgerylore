@@ -21,7 +21,6 @@
         <h1>THAT FEELING WHEN KNEE SURGERY IS TOMORROW. . .</h1>
         <img id="kneesurgeryrealimage" width='400px' src="knee surgery guy.jpg">
         <h1 id="ohio">SEND THIS TO 5 PEOPLE YOU KNOW OR ELSE I WILL GIVE YOU KNEE SURGERY TOMORROW. . .</h1>
-        <audio src="https://www.myinstants.com/en/instant/vine-boom-sound-70972/?utm_source=copy&utm_medium=share"></audio>
         <script>
             let keysdown = {};
             let posX = 0;
@@ -30,8 +29,15 @@
             let vY = 5;
             let hits = 0;
             const boom = new Audio('vine-boom.mp3');
+            var myAudio = new Audio('that-feeling-when-knee-surgery-is-tomorrow.mp3'); 
+            myAudio.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+myAudio.play();
             window.addEventListener("keydown", function(input){keysdown[input.key.toLowerCase()] = true});
             window.addEventListener("keyup", function(input){keysdown[input.key.toLowerCase()] = false});
+
             function step(){
                 posX += vX;
                 if(posX>window.innerWidth-400 || posX<0){
@@ -39,6 +45,7 @@
                     posX += vX;
                     hits ++;
                     new Audio('vine-boom.mp3').play();
+                    document.getElementById('ohio').innerText = "SEND THIS TO " + hits + " PEOPLE YOU KNOW OR ELSE I WILL GIVE YOU KNEE SURGERY TOMORROW. . .";
                 }
                 posY += vY;
                 if(posY>window.innerHeight-220 || posY<0){
@@ -46,6 +53,7 @@
                     posY += vY;
                     hits ++;
                     new Audio('vine-boom.mp3').play();
+                    document.getElementById('ohio').innerText = "SEND THIS TO " + hits + " PEOPLE YOU KNOW OR ELSE I WILL GIVE YOU KNEE SURGERY TOMORROW. . .";
                 }
                 if(keysdown['w']){
                     vY --;
@@ -61,7 +69,6 @@
                 }
                 document.getElementById('kneesurgeryrealimage').style.left = posX + 'px';
                 document.getElementById('kneesurgeryrealimage').style.top = posY + 'px';
-                document.getElementById('ohio').innerText = "SEND THIS TO " + hits + " PEOPLE YOU KNOW OR ELSE I WILL GIVE YOU KNEE SURGERY TOMORROW. . .";
                 requestAnimationFrame(step);
             }
             step();
