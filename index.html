@@ -29,13 +29,12 @@
             let vY = 5;
             let hits = 0;
             const boom = new Audio('vine-boom.mp3');
-            var myAudio = new Audio('that-feeling-when-knee-surgery-is-tomorrow.mp3');
-            myAudio.play();
+            const myAudio = new Audio('that-feeling-when-knee-surgery-is-tomorrow.mp3');
             myAudio.addEventListener('ended', function() {
                 this.currentTime = 0;
                 this.play();
             }, false);
-            window.addEventListener("keydown", function(input){keysdown[input.key.toLowerCase()] = true});
+            window.addEventListener("keydown", function(input){keysdown[input.key.toLowerCase()] = true; myAudio.play();});
             window.addEventListener("keyup", function(input){keysdown[input.key.toLowerCase()] = false});
 
             function step(){
